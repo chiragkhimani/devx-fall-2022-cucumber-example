@@ -10,10 +10,21 @@ Feature: To test login functionality
 
   @Smoke  @Chirag
   Scenario: Verify user can login into application
-    When user enter the valid credentials
+    When user enter username "admin" and password "admin123"
     Then verify home page is displayed
 
-   @Regression @Paulina
-  Scenario: Verify user cannot login with invalid credentials
-    When user enter the invalid credentials
+  @Regression @Paulina
+  Scenario Outline: Verify user cannot login with invalid credentials
+    When user enter username "<username>" and password "<password>"
     Then verify invalid login error message is displayed
+
+    Examples:
+      | username | password |
+      | user     | test123  |
+      | admin    | test123  |
+      | user     | admin123 |
+      | admin    |          |
+      |          |          |
+
+
+

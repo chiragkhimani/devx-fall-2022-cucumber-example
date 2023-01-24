@@ -91,4 +91,10 @@ public class StepDefinition {
 
     }
 
+    @When("user enter username {string} and password {string}")
+    public void user_enter_username_and_password(String username, String password) {
+        System.out.println("============" + username);
+        System.out.println("============" + password);
+    }
+
 }
